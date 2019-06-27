@@ -1,0 +1,15 @@
+.list__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid gray;
+    margin-top: 2px
+}
+
+.list__wrapper input{
+    width: 50%
+}
+
+p{
+    margin-bottom: 0
+}

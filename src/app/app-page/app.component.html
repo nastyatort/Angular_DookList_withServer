@@ -1,0 +1,19 @@
+<div class="app__wrapper">
+        <div class="app__header">
+                <p>Contact list</p>
+
+                <a
+                *ngIf="showLogoutUi == true"
+                class="logout"
+                (click)="logout()"
+                routerLink="/login"
+                routerLinkActive="active"
+                >
+                logout
+        </a>
+        </div>
+        <div class="link__wrapper">
+
+        </div>
+        <router-outlet></router-outlet>
+   </div>
