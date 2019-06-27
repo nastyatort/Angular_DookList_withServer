@@ -20,7 +20,7 @@ export class ModalComponent{
     private phoneId: string;
 
     showModal(){
-        (document.getElementById(this.id)).hidden = false;
+        (document.getElementById(this.id + '__modal') as HTMLDialogElement).style.visibility = "visible"
     }
 
     closeModal(){

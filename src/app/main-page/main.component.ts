@@ -27,7 +27,6 @@ export class MainComponent  {
     phone: PhoneComponent = new PhoneComponent("");
     phones: PhoneComponent[] = [];
     userId: any = this.userService.getUserId();
-    modalIsOpen: boolean = false;
     phoneId: string;
     shouldDeletePhone: boolean = false;
 
@@ -83,6 +82,7 @@ export class MainComponent  {
             this.phones.splice(editElement, 1, {title: newText, _id: id, userId: this.userId})
         })
         this.idForAction = '';
+        this.idForModal = '';
       }
 
       cancelPhone(id: string){
@@ -103,9 +103,9 @@ export class MainComponent  {
 
     showModal(id: string){
         this.idForModal = id;
-        console.log('idForModal = ' + this.idForModal);
-        console.log('id = ' + id);
-        this.modalIsOpen = true;
         this.phoneId = id;
+        if( (document.getElementById(id + '__modal') as HTMLDialogElement)){
+        (document.getElementById(id + '__modal') as HTMLDialogElement).style.visibility = "visible"
+        }
     }
 }

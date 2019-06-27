@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
     }
 
     onLogin(login:NgModel, pass:NgModel){
+        if(this.user.login != '' && this.user.pass != ''){
 
         this.loginService.sendData(
         {login: this.user.login, pass: this.user.pass}
@@ -63,6 +64,8 @@ export class LoginComponent implements OnInit {
                 this.errMessage = res.message;
             }
         })
-        
+    }else{
+        this.errMessage = "Поля обязательны к заполнению"
+    }        
     }
 }
