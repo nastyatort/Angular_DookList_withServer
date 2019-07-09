@@ -9,3 +9,20 @@
 label{
     margin-bottom: 0;
 }
+
+.login__form{
+    width: 180px
+}
+
+.content{
+    display: flex;
+    justify-content: center
+}
+
+.login__field button{
+    margin: auto
+}
+
+.logo{
+    text-align: center
+}

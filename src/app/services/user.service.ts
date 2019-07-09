@@ -4,7 +4,9 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class UserService{
   
-    constructor(private http: HttpClient){ } 
+    constructor(
+      private http: HttpClient
+    ){ } 
 
     private userId: any;
     private userName: any;
@@ -20,4 +22,11 @@ export class UserService{
         return this.userName.loginUserName;
     }
 
+    getUserInfo(data: any){
+      return this.http.post('http://localhost:8008/api/user/get', data); 
+    }
+
+    updateUserInfo(data: any){
+      return this.http.post('http://localhost:8008/api/user/update', data); 
+    }
 }

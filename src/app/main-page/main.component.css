@@ -13,3 +13,9 @@
 p{
     margin-bottom: 0
 }
+
+.update{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}

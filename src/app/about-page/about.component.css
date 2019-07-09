@@ -3,6 +3,18 @@
     position: relative;
 }
 
-.content{
+.about__field{
     display: flex
+}
+
+.today{
+    display: flex;
+}
+
+.today p:first-child{
+    width: 62px;
+}
+
+.today p:last-child{
+    text-decoration: underline
 }

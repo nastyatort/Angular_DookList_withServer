@@ -25,7 +25,8 @@ module.exports = {
                     loader: 'awesome-typescript-loader',
                     options: { configFileName: path.resolve(__dirname, 'tsconfig.json') }
                   } ,
-                   'angular2-template-loader'
+                   'angular2-template-loader',
+                   'angular2-router-loader?loader=require'
                ]
             },{
               test: /\.html$/,
@@ -34,7 +35,18 @@ module.exports = {
                 test: /\.css$/,
                 include: path.resolve(__dirname,'src/app'),
                 loader: 'raw-loader'
-              }
+              },
+              {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'img',
+                        },
+                    }
+                ]
+            }
        ]
    },
    plugins: [

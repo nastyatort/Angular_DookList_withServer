@@ -10,8 +10,13 @@
 }
 
 .app__header{
-    color: green;
-    position: relative
+    position: relative;
+    background: #6ab0d9
+}
+
+.app__header p{
+    color: white;
+    font-size: 30px
 }
 
 .logout{

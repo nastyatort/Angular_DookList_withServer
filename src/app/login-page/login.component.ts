@@ -18,10 +18,7 @@ import { AppComponent } from '../app-page/app.component'
 
 export class LoginComponent implements OnInit {
     constructor(
-        private httpService: HttpService,
         private loginService: LoginService,
-        private userService: UserService,
-        private route: ActivatedRoute,
         private router: Router,
         private appComponent: AppComponent
         ){}

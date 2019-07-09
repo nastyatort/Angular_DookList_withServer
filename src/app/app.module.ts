@@ -8,38 +8,51 @@ import { UserService} from './services/user.service';
 import { FormsModule }   from '@angular/forms';
  
 import { AppComponent }   from './app-page/app.component';
-import { AboutComponent }   from './about-page/about.component';
 import { LoginComponent }   from './login-page/login.component';
 import { MainComponent }   from './main-page/main.component';
 import { PhoneComponent }   from './phone-page/phone.component';
 import { ModalComponent }   from './modal-page/modal.component';
+import {InterceptorOne} from './interceptors/interceptor';
 
-import { HttpClientModule }   from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS }   from '@angular/common/http';
 
 import {LoginRouteGuard} from './guard';
-import {NavComponent} from './nav-page/nav.component'
 
-
- 
 // определение маршрутов
 const appRoutes: Routes =[
     { path: 'login', component: LoginComponent},
-    { path: 'about', component: AboutComponent, canActivate: [LoginRouteGuard]},
-    { path: 'main', component: MainComponent, canActivate: [LoginRouteGuard]}
+    { path: '*', component: LoginComponent},
+    { path: '', component: LoginComponent},
+    { path: 'about', loadChildren: './about.module#AboutModule', canActivate: [LoginRouteGuard]},        
+    { path: 'main', component: MainComponent, canActivate: [LoginRouteGuard]},
 ];
  
 @NgModule({
-    imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes), HttpClientModule],
+    imports:      [
+        BrowserModule, 
+        FormsModule, 
+        RouterModule.forRoot(appRoutes), 
+        HttpClientModule,
+    ],
+    exports: [RouterModule],
     declarations: [
         AppComponent,
-        AboutComponent,
-        NavComponent,
         LoginComponent,
         MainComponent,
         PhoneComponent,
         ModalComponent
     ],
-    providers:    [LoginRouteGuard, HttpService, LoginService, UserService],
+    providers:    [
+        LoginRouteGuard,
+        HttpService,
+        LoginService,
+        UserService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptorOne,
+            multi: true,
+          },
+        ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

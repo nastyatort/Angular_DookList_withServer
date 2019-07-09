@@ -14,7 +14,6 @@ export class AppComponent {
 
     ngOnInit(){ 
         this.showLogout =  JSON.parse(localStorage.getItem("isLogged"));
-        console.log("show logout");
         this.showLogoutUi = (this.showLogout.trigger)
     }
 
@@ -25,6 +24,7 @@ export class AppComponent {
         localStorage.setItem("isLogged", JSON.stringify(this.isLogoutData));
 
         this.showLogout = JSON.parse(localStorage.getItem("isLogged"));
-        this.showLogoutUi = (this.showLogout.trigger)
+        this.showLogoutUi = (this.showLogout.trigger);
+        console.log(this.showLogoutUi)
     }
 }

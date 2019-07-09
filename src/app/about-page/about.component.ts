@@ -1,9 +1,6 @@
+import { NgModule }      from '@angular/core';
 import { Component} from '@angular/core';
 import { UserService} from '../services/user.service';
-import { OnInit} from '@angular/core';
-
-import {NavComponent} from '../nav-page/nav.component';
-import { ModalComponent }   from '../modal-page/modal.component';
   
 @Component({
     selector: 'about-page',
@@ -16,14 +13,10 @@ export class AboutComponent {
     ){}
 
     userName: string = '';
-    modalIsOpen: boolean = false;
+    date: Date;
 
     ngOnInit() {
         this.userName = this.userService.getUserName();
+        this.date = new Date();
     }
-
-    showModal(){
-        this.modalIsOpen = !this.modalIsOpen
-    }
-
 }

@@ -7,7 +7,6 @@ import { UserService} from '../services/user.service';
 import { ModalComponent} from '../modal-page/modal.component';
 
 import {PhoneComponent} from '../phone-page/phone.component';
-import {NavComponent} from '../nav-page/nav.component'
 import { identifierModuleUrl } from '@angular/compiler';
   
 @Component({
@@ -41,7 +40,7 @@ export class MainComponent  {
             {
                 for(let i = 0; i < data.items.length; i++){
                 if(data.items[i].userId == this.userId){
-                    this.phones.push(data.items[i])
+                    this.phones.push(data.items[i]);
                 }
                 }
             });

@@ -13,7 +13,11 @@
       "node_modules/@types/"
     ]
   },
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
+  "include": ["src/**/*.ts","node_modules/angular-bootstrap-md/**/*.ts" ],
   "exclude": [
       "node_modules"
-  ]
+  ],
 }
