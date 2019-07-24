@@ -26,7 +26,11 @@
                     <h5>Тестим реактивную форму(обновляем информацию)</h5>
                         <div class="form-group">
                             <label>first name</label>
-                            <input name="firstName" formControlName="userName" />
+                            <input 
+                            name="firstName" 
+                            formControlName="userName"
+                            value="{{firstName}}"
+                            />
                             <div
                                 *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">
                                 Не верно указано имя
@@ -34,7 +38,11 @@
                         </div>
                         <div class="form-group">
                                 <label>last name</label>
-                                <input name="lastName" formControlName="userLastName" />
+                                <input 
+                                name="lastName" 
+                                formControlName="userLastName" 
+                                value="{{lastName}}"
+                                />
                                 <div
                                     *ngIf="myForm.controls['userLastName'].invalid && myForm.controls['userLastName'].touched">
                                     Не верно указана фамилия
@@ -42,7 +50,11 @@
                             </div>
                         <div class="form-group">
                             <label>email</label>
-                            <input name="email" formControlName="userEmail" />
+                            <input 
+                            name="email" 
+                            formControlName="userEmail" 
+                            value="{{email}}"
+                            />
                             <div
                                 *ngIf="myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched">
                                 Не верно указан email
@@ -50,7 +62,11 @@
                         </div>
                         <div class="form-group">
                             <label>phone</label>
-                            <input name="phone" formControlName="userPhone" />
+                            <input 
+                            name="phone" 
+                            formControlName="userPhone" 
+                            value="{{phone}}"
+                            />
                             <div
                                 *ngIf="myForm.controls['userPhone'].invalid && myForm.controls['userPhone'].touched">
                                 Не верно указан номер телефона
@@ -64,6 +80,7 @@
                                 Отправить
                             </button>
                         </div>
+                        <div *ngIf="myForm.invalid">asd</div>
                     </form>
         </div>
 

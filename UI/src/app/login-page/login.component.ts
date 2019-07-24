@@ -30,17 +30,23 @@ export class LoginComponent implements OnInit {
 
     storageData: any;
     isLoggedData: any;
+    infoFirstName: any;
+    infoLastName: any;
+    infoEmail: any;
+    infoPhone: any;
 
     ngOnInit() {
         this.returnUrl = '/main';
     }
 
     onLogin(login:NgModel, pass:NgModel){
+        this.appComponent.showLogoutUi = false;
         if(this.user.login != '' && this.user.pass != ''){
 
         this.loginService.sendData(
         {login: this.user.login, pass: this.user.pass}
         ).subscribe((res: any) => {
+            console.log(res)
             if(res.success == true){
                 this.router.navigate([this.returnUrl]);
 
@@ -52,13 +58,11 @@ export class LoginComponent implements OnInit {
 
                 this.storageData = {
                     loginUserId: res.user._id,
-                    loginUserName: res.user.login
+                    loginUserName: res.user.login,
                 }
                 localStorage.setItem("userData", JSON.stringify(this.storageData));
-
-
             }else{
-                this.errMessage = res.message;
+                this.errMessage = "Не верно указано имя или пароль";
             }
         })
     }else{

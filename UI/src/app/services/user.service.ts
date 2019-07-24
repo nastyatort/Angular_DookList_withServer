@@ -23,10 +23,10 @@ export class UserService{
     }
 
     getUserInfo(data: any){
-      return this.http.post('http://localhost:8008/api/user/get', data); 
+      return this.http.post('http://localhost:8008/user/get', data); 
     }
 
     updateUserInfo(data: any){
-      return this.http.post('http://localhost:8008/api/user/update', data); 
+      return this.http.post('http://localhost:8008/user/update', data); 
     }
 }
